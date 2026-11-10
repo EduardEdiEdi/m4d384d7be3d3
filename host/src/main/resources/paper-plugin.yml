@@ -1,0 +1,17 @@
+name: Kestrel
+version: '${version}'
+main: kestrel.KestrelPlugin
+loader: better.anticheat.paper.BetterAnticheatPaperLoader
+api-version: '1.21'
+description: Report-only detection modules.
+authors: [amnoah, Vekster, pawsashatoy, Onako2, Christiano9590]
+dependencies:
+  server:
+    packetevents:
+      load: BEFORE
+      required: true
+      join-classpath: true
+    floodgate:
+      load: BEFORE
+      required: false
+      join-classpath: true

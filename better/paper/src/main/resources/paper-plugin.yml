@@ -1,0 +1,21 @@
+name: BetterAnticheat
+version: 1.0.0
+main: better.anticheat.paper.BetterAnticheatPaper
+api-version: 1.21.2
+load: POSTWORLD
+folia-supported: true
+loader: better.anticheat.paper.BetterAnticheatPaperLoader
+dependencies:
+  server:
+    BetterReload:
+      load: AFTER
+      required: false
+      join-classpath: true
+    packetevents:
+      load: AFTER
+      required: true
+      join-classpath: true
+    GrimAC:
+      load: AFTER
+      required: false
+      join-classpath: true

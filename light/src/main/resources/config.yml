@@ -1,0 +1,390 @@
+enabled: true
+messages:
+  prefix: '&#FF450ELight &8&l»&f'
+  hex-color-codes: true
+  command-messages:
+    help:
+      message: '%prefix% LightAntiCheat &8(&#FF450E%version%&8) &fIs Running&7.'
+    reload:
+      message: '%prefix% Successfully Reloaded The Config File In &8(&#FF450E%time%ms&8)&7.'
+    alerts:
+      toggled-on-message: '%prefix% Alerts Enabled&7.'
+      toggled-off-message: '%prefix% Alerts Disabled&7.'
+    tps:
+      message: '%prefix% TPS From The Last 30s&7: &8(&#FF450E%tps%&8)&7.'
+    ping:
+      message: '%prefix% &7%name%&7''s &fPing Is &8(&#FF450E%ping%ms&8) &8[&f%connection-stability%&8]&7.'
+      connection-stability:
+        high: '&2High&r'
+        medium: '&6Medium&r'
+        low: '&4Low&r'
+    client:
+      message: '%prefix% &7%name%&7''s &fClient Is &8(&#FF450E%client-brand%&8)&7.'
+    cps:
+      message: '%prefix% %name%&7''s CPS Is &8(&#FF450E%cps%&8)&7.'
+    checks:
+      message: '%prefix% Checks&7: &#FF450E%checks%'
+  error-messages:
+    no-permission: '%prefix% You Don''t Have Permission To Execute This Command&7.'
+    invalid-format: '%prefix% Usage&7: &f &7%usage%'
+alerts:
+  broadcast-violations:
+    enabled: false
+    message: '%prefix% &7%name% &fFailed &#FF450E%check% &8[&#FF450E%vio%&7/&#FF450E%punishment-vio%&8] &7| &8[&#FF450EPing&7: &#FF450E%ping%&8] [&#FF450ETps&7: &#FF450E%tps%&8]'
+    cooldown: 0
+    on-hover: '&fCheck&7: &#FF450E%check% &8(&#FF450E%check-description%&8)%new-line%&fWorld&7: &#FF450E%world%%new-line%&fCoordinates&7: &#FF450E%x% %y% %z%%new-line%&fClient&7: &#FF450E%client-brand%'
+    on-click: /light teleport %teleport-location%
+  broadcast-punishments:
+    enabled: false
+    message: '%prefix% &7%name% &fWas Punished For&7: &#FF450EUNFAIR ADVANTAGE'
+    cooldown: 0
+    on-hover: '&fCheck&7: &#FF450E%check% &8(&#FF450E%check-description%&8)%new-line%&fWorld&7: &#FF450E%world%%new-line%&fCoordinates&7: &#FF450E%x% %y% %z%%new-line%&fClient&7: &#FF450E%client-brand%'
+    on-click: /light teleport %teleport-location%
+log:
+  enabled: false
+  file: logs/%date-day%.log
+  log-violations:
+    enabled: false
+    message: '(%date-sec%) %name% Failed [Check: %check% (%check-description%)] [Violations: %vio%/%punishment-vio%] [TPS: %tps%] [Ping: %ping%ms (%connection-stability% stability)] [Client: %client-brand%]
+      [Location: %world% %x% %y% %z%]'
+    cooldown: 1000
+  log-punishments:
+    enabled: false
+    message: '(%date-sec%) %name% Was Punished [Check: %check% (%check-description%)] [Violations: %vio%/%punishment-vio%] [TPS: %tps%]  [Ping: %ping%ms (%connection-stability% stability)] [Client: %client-brand%]
+      [Location: %world% %x% %y% %z%]'
+    cooldown: 0
+discord-webhook:
+  enabled: false
+  send-violations:
+    enabled: false
+    webhook-url: ''
+    message: '```%name% Failed %check% (%check-description%) (%vio%/%punishment-vio%)```'
+    cooldown: 2000
+  send-punishments:
+    enabled: false
+    webhook-url: ''
+    message: '```%name% Was Punished For %check% (%check-description%)```'
+    cooldown: 0
+permission:
+  per-check-bypass-permission: false
+  disable-all-bypass-permissions: true
+violation:
+  reset:
+    reset-interval: 180
+  cache:
+    enabled: true
+    cache-duration: 180
+lag-protection:
+  tick-threshold: 1000
+  ignore-time-on-join: 500
+  ignore-time-on-teleport: 0
+  prevent-entering-into-unloaded-chucks: false
+  prioritize-accuracy: true
+geyser-hook:
+  enabled: true
+  floodgate:
+    enabled: true
+  uuid:
+    enabled: true
+  prefix:
+    enabled: true
+    prefix-string: .
+update-checker:
+  enabled: false
+  notification:
+    console:
+      enabled: false
+      message: '%prefix% LightAntiCheat &8(&#FF450E%latest-version%&8) Is Available&7.'
+    on-join:
+      enabled: false
+      message: '%prefix% LightAntiCheat &8(&#FF450E%latest-version%&8) Is Available&7.'
+      require-permission: true
+bstats:
+  enabled: false
+api:
+  enabled: true
+checks:
+  combat:
+    killaura:
+      killaura_a:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 5
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true
+      killaura_b:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 10
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true
+      killaura_c:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 5
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true
+      killaura_d:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 5
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true
+    criticals:
+      criticals_a:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 5
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true
+      criticals_b:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 5
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true
+    autoclicker:
+      autoclicker_a:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 10
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true
+      autoclicker_b:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 10
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true
+  interaction:
+    fastplace:
+      fastplace_a:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 5
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true
+    ghostbreak:
+      ghostbreak_a:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 5
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true
+    fastbreak:
+      fastbreak_a:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 5
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true
+    blockbreak:
+      blockbreak_a:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 10
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true
+    scaffold:
+      scaffold_a:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 5
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true
+      scaffold_b:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 5
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true
+  packet:
+    morepackets:
+      morepackets_b:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 5
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true
+  inventory:
+    sorting:
+      sorting_a:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 5
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true
+    itemswap:
+      itemswap_a:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 5
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true
+  player:
+    autobot:
+      autobot_a:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 5
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true
+    skinblinker:
+      skinblinker_a:
+        enabled: true
+        punishment:
+          punishable: false
+          punishment-vio: 5
+          commands: []
+        setback:
+          setback: false
+          setback-vio: 0
+        detection:
+          min-tps: 5.0
+          max-ping: 10000
+          java: true
+          bedrock: true

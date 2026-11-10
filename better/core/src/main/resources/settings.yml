@@ -1,0 +1,16 @@
+# Combat module settings. This module never alerts, kicks or bans: every fail at or above a check's alert-vl is
+# handed to the host plugin, which decides what it means.
+
+# Do not watch clients older than 1.21 (several checks rely on the 1.21 tick-end packet).
+dont-inject-pre-121-players: true
+
+entity-tracker:
+  fast-awaiting-update: true
+  fast-entity-box: true
+
+cookie-allocator:
+  # sequential, random, timestamp or file
+  type: random
+  parameters:
+    cookieLength: 8
+    maxRetries: 100
